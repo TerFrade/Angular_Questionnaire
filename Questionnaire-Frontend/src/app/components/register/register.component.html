@@ -1,33 +1,55 @@
-<div class="container" id="registerDiv">
-  <h2 class="page-header">Register</h2>
+<div class="container w-50 p-3">
   <form (ngSubmit)="onRegisterSubmit()">
-    <div class="form-group">
+    <div class="text-center mb-4">
+      <img
+        class="mb-4"
+        src="../../../assets/navbar-icon.svg"
+        alt=""
+        width="72"
+        height="72"
+      />
+      <h1 class="h3 mb-3 font-weight-normal">Warg Register</h1>
+    </div>
+    <div class="form-label-group">
       <label>Username</label>
       <input
         type="text"
         name="username"
         [(ngModel)]="username"
         class="form-control"
+        placeholder="e.g: johnD"
       />
     </div>
-    <div class="form-group">
-      <label>Email</label>
+    <br />
+    <div class="form-label-group">
+      <label>Email address</label>
       <input
         type="text"
         name="email"
         [(ngModel)]="email"
         class="form-control"
+        placeholder="e.g: John@doe.com"
       />
     </div>
-    <div class="form-group">
+    <br />
+    <div class="form-label-group">
       <label>Password</label>
       <input
         type="password"
         name="password"
         [(ngModel)]="password"
         class="form-control"
+        placeholder="e.g: johnkickmynuts"
       />
     </div>
-    <input type="submit" value="Submit" class="btn btn-primary" />
+    <br />
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Register
+    </button>
   </form>
 </div>
+
+<footer class="mt-5 mb-3 text-muted text-center">
+  <p>&copy; Company 2018-2019</p>
+</footer>
