@@ -11,6 +11,7 @@ using Questionnaire_Backend.Models;
 
 namespace Questionnaire_Backend.Controllers
 {
+    [Route("/api/users")]
     public class UsersController : Controller
     {
         private readonly QuestionnaireDbContext _context;
@@ -22,13 +23,74 @@ namespace Questionnaire_Backend.Controllers
             this.mapper = mapper;
         }
 
-        // GET: Users
-        [HttpGet("/api/users")]
+        // GET: All Users
+        [HttpGet]
         public async Task<IEnumerable<UserResource>> GetUsers()
         {
-            var users = await _context.Users.Include(u => u.Roles).ToListAsync();
+            var users = await _context.Users.ToListAsync(); 
 
             return mapper.Map<List<Users>, List<UserResource>>(users);
+        }
+
+        // GET: A Users
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+                return NotFound();
+
+            return Ok(mapper.Map<Users, UserResource>(user));
+        }
+
+        //POST: A New User
+        [HttpPost]
+        public async Task<IActionResult> CreateUser([FromBody] UserResource userResource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var user = mapper.Map<UserResource, Users>(userResource);
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            var result = mapper.Map<Users, UserResource>(user);
+            return Ok(result);
+        }
+
+        //PUT: Update A User
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UserResource userResource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+                return NotFound();
+
+            mapper.Map<UserResource, Users>(userResource, user);
+            await _context.SaveChangesAsync();
+
+            var result = mapper.Map<Users, UserResource>(user);
+            return Ok(result);
+        }
+
+        //DELETE: Delete A User
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+                return NotFound();
+
+            _context.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(id);
         }
 
     }

@@ -12,8 +12,18 @@ namespace Questionnaire_Backend.Mapping
     {
         public MappingProfile()
         {
+            /* -Below is an example of mapping complex objects within our main object.
+             CreateMap<UserResource, Users>().ForMember(u => u.RolesId, opt => opt.MapFrom(ur => ur.RolesId))
+             CreateMap<Roles, RoleResource>().ForMember(ur => ur.RolesId, opt => opt.MapFrom(u => u.RolesId))
+            */
+
+
+            //Domain to API Resource
             CreateMap<Users, UserResource>();
             CreateMap<Roles, RoleResource>();
-        }
+
+            //API Resource to Domain
+            CreateMap<UserResource, Users>().ForMember(u => u.Id, opt => opt.Ignore());
+        }   
     }
 }
