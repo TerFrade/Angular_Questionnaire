@@ -32,6 +32,15 @@ namespace Questionnaire_Backend
 
             services.AddAutoMapper();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddDbContext<QuestionnaireDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("QuestionnaireDbContext")));
         }
@@ -47,7 +56,7 @@ namespace Questionnaire_Backend
             {
                 app.UseHsts();
             }
-
+            app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
