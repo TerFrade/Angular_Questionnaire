@@ -25,18 +25,19 @@ namespace Questionnaire_Backend.Controllers
 
         // GET: All Users
         [HttpGet]
-        public async Task<IEnumerable<UserResource>> GetUsers()
+        public UserResource[] Get()
         {
-            var users = await _context.Users.ToListAsync(); 
-
-            return mapper.Map<List<Users>, List<UserResource>>(users);
+            
+                return _context.Users.ToArray()
+                   .Select(x => new UserResource()).ToArray();
+            
         }
 
         // GET: A Users
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser(int id)
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetUser(string email)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FromSql("Select * from Users where email ='"+email+"'").FirstAsync();
 
             if (user == null)
                 return NotFound();

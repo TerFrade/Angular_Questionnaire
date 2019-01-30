@@ -1,5 +1,5 @@
 <div class="container w-50 p-3">
-  <form>
+  <form (ngSubmit)="onLoginSubmit()">
     <div class="text-center mb-4">
       <img
         class="mb-4"
@@ -16,6 +16,8 @@
       <input
         type="email"
         id="inputEmail"
+        name="email"
+        [(ngModel)]="email"
         class="form-control"
         placeholder="e.g: John@doe.com"
         required
@@ -28,6 +30,8 @@
       <input
         type="password"
         id="inputPassword"
+        name="password"
+        [(ngModel)]="password"
         class="form-control"
         placeholder="e.g: johnkickmynuts"
         required

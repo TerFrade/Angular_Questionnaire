@@ -19,7 +19,7 @@ namespace Questionnaire_Backend.Mapping
 
 
             //Domain to API Resource
-            CreateMap<Users, UserResource>();
+            CreateMap<Users, UserResource>().ForMember(u => u.Id, opt => opt.Ignore());
             CreateMap<Roles, RoleResource>();
 
             //API Resource to Domain
