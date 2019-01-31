@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       username: this.username,
       email: this.email,
       password: this.password,
-      rolesId: 2
+      roleId: 2
     };
     //Required Fields
     if (!this.validateService.validateRegister(user)) {
@@ -46,7 +46,12 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
-    if (this.registerService.addUser(user).subscribe()) {
+    if (!this.registerService.addUser(user).subscribe()) {
+      this.flashMessage.show("Registration Failed", {
+        cssClass: "alert-danger",
+        timeout: 4000
+      });
+    } else {
       this.flashMessage.show("Registration Complete", {
         cssClass: "alert-success",
         timeout: 4000

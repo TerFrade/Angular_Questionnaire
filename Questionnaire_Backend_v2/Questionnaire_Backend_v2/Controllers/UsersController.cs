@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Threading.Tasks;
 using Questionnaire_Backend_v2.Database.Models;
 using Questionnaire_Backend_v2.DTO;
 using Questionnaire_Backend_v2.Models;
@@ -16,7 +17,7 @@ namespace Questionnaire_Backend_v2.Controllers
 {
     public class UsersController : ApiController
     {
-
+        private readonly QuestionnaireDBv2Context _db = new QuestionnaireDBv2Context();
         // GET: api/Users
         public UserDTO[] GetUsers()
         {
@@ -28,22 +29,22 @@ namespace Questionnaire_Backend_v2.Controllers
         }
 
         // GET: api/Users?email=[email]&password=[password]
-        public UserDTO GetUserByEmailAndPassword(string email, string password)
+        public async Task<UserDTO> GetUserByEmailAndPassword(string email, string password)
         {
             using (var db = new QuestionnaireDBv2Context())
             {
-                var item = db.Users.Include(r => r.Role).FirstOrDefault(x => x.Email == email && x.Password == password);
+                var item = await db.Users.Include(r => r.Role).FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
                 if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
                 return new UserDTO(item);
             }
         }
 
         // GET: api/Users/5
-        public UserDTO GetUserById(int id)
+        public async Task<UserDTO> GetUserEmail(string Id)
         {
             using (var db = new QuestionnaireDBv2Context())
             {
-                var item = db.Users.Include(r => r.Role).FirstOrDefault(x => x.Id == id);
+                var item = await db.Users.Include(r => r.Role).FirstOrDefaultAsync(x => x.Email == Id);
                 if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
                 return new UserDTO(item);
             }
@@ -77,7 +78,7 @@ namespace Questionnaire_Backend_v2.Controllers
                     Email = value.Email,
                     Password = value.Password,
                     RoleId = db.Roles.Single(r => r.Id == value.RoleId).Id
-                };
+            };
                 
                 db.Users.Add(item);
                 db.SaveChanges();

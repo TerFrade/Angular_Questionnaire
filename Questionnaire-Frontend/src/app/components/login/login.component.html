@@ -1,5 +1,5 @@
 <div class="container w-50 p-3">
-  <form (ngSubmit)="onLoginSubmit()">
+  <form>
     <div class="text-center mb-4">
       <img
         class="mb-4"
@@ -15,7 +15,6 @@
       <label>Email address</label>
       <input
         type="email"
-        id="inputEmail"
         name="email"
         [(ngModel)]="email"
         class="form-control"
@@ -29,7 +28,6 @@
       <label>Password</label>
       <input
         type="password"
-        id="inputPassword"
         name="password"
         [(ngModel)]="password"
         class="form-control"
@@ -41,7 +39,11 @@
     <div class="checkbox mb-3">
       <label> <input type="checkbox" value="remember-me" /> Remember me </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">
+    <button
+      class="btn btn-lg btn-primary btn-block"
+      type="submit"
+      (click)="onLoginSubmit()"
+    >
       Sign in
     </button>
   </form>
