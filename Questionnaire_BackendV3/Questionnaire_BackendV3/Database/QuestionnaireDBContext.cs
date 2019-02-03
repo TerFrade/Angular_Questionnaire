@@ -22,5 +22,7 @@ namespace Questionnaire_BackendV3.Models
         public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.Role> Roles { get; set; }
 
         public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.Questionnaire> Questionnaires { get; set; }
     }
 }

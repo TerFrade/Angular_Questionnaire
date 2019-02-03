@@ -18,5 +18,7 @@ namespace Questionnaire_BackendV3.Database.Models
 
         public int UserId { get; set; }
         [ForeignKey("UserId"), Required] public virtual User User { get; set; }
+
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

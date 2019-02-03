@@ -133,12 +133,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\QuestionnairesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Database\Models\Question.cs" />
     <Compile Include="Database\Models\Questionnaire.cs" />
+    <Compile Include="Database\Models\QuestionType.cs" />
     <Compile Include="Database\Models\Role.cs" />
     <Compile Include="Database\Models\User.cs" />
+    <Compile Include="DTO\QuestionDTO.cs" />
     <Compile Include="DTO\QuestionnaireDTO.cs" />
+    <Compile Include="DTO\QuestionTypeDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Global.asax.cs">
@@ -151,6 +156,14 @@
     <Compile Include="Migrations\201902030844098_UpdateDomain.cs" />
     <Compile Include="Migrations\201902030844098_UpdateDomain.Designer.cs">
       <DependentUpon>201902030844098_UpdateDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902031954485_UpdateDomainV2.cs" />
+    <Compile Include="Migrations\201902031954485_UpdateDomainV2.Designer.cs">
+      <DependentUpon>201902031954485_UpdateDomainV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902032012571_UpdateDomainV3.cs" />
+    <Compile Include="Migrations\201902032012571_UpdateDomainV3.Designer.cs">
+      <DependentUpon>201902032012571_UpdateDomainV3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Database\QuestionnaireDBContext.cs" />
@@ -179,6 +192,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902030844098_UpdateDomain.resx">
       <DependentUpon>201902030844098_UpdateDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902031954485_UpdateDomainV2.resx">
+      <DependentUpon>201902031954485_UpdateDomainV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902032012571_UpdateDomainV3.resx">
+      <DependentUpon>201902032012571_UpdateDomainV3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -14,6 +14,7 @@ namespace Questionnaire_BackendV3.DTO
         public bool IsPublic { get; set; }
         public string Link { get; set; }
         public int UserId { get; set; }
+        public QuestionDTO[] Questions { get; set; }
 
         public QuestionnaireDTO() { }
 
@@ -25,6 +26,9 @@ namespace Questionnaire_BackendV3.DTO
             IsPublic = item.IsPublic;
             Link = item.Link;
             UserId = item.UserId;
+
+            if (item.Questions != null)
+                Questions = item.Questions.Select(x => new QuestionDTO(x)).ToArray();
         }
 
     }
