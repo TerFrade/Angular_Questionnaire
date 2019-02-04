@@ -24,5 +24,13 @@ namespace Questionnaire_BackendV3.Models
         public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.User> Users { get; set; }
 
         public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.Questionnaire> Questionnaires { get; set; }
+
+        public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.QuestionType> QuestionTypes { get; set; }
+
+        public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.Question> Questions { get; set; }
+
+        public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.AvailableAnswer> AvailableAnswers { get; set; }
+
+        public System.Data.Entity.DbSet<Questionnaire_BackendV3.Database.Models.Response> Responses { get; set; }
     }
 }

@@ -21,6 +21,26 @@ namespace Questionnaire_BackendV3.Controllers
             }
         }
 
+        public UserDTO Get(int id)
+        {
+            using (var db = new QuestionnaireDBContext())
+            {
+                var item = db.Users.FirstOrDefault(x => x.Id == id);
+                if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
+                return new UserDTO(item);
+            }
+        }
+
+        public UserDTO Get(string email, string password)
+        {
+            using (var db = new QuestionnaireDBContext())
+            {
+                var item = db.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
+                if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
+                return new UserDTO(item);
+            }
+        }
+
         public int Post([FromBody] UserDTO value)
         {
             using (var db = new QuestionnaireDBContext())

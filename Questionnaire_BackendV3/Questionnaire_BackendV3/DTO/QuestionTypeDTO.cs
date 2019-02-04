@@ -10,7 +10,7 @@ namespace Questionnaire_BackendV3.DTO
     {
         public int Id { get; set; }
         public string TypeName { get; set; }
-        public QuestionDTO[] Questions { get; set; }
+        //public QuestionDTO[] Questions { get; set; }
 
         public QuestionTypeDTO() { }
 
@@ -19,8 +19,8 @@ namespace Questionnaire_BackendV3.DTO
             Id = item.Id;
             TypeName = item.TypeName;
 
-            if (item.Questions != null)
-                Questions = item.Questions.Select(x => new QuestionDTO(x)).ToArray();
+            //if (item.Questions != null)
+            //    Questions = item.Questions.Select(x => new QuestionDTO(x)).ToArray();
         }
     }
 }
