@@ -1,3 +1,4 @@
+
 import { LoginService } from "./services/login.service";
 import { RegisterService } from "./services/register.service";
 import { NgModule } from "@angular/core";
@@ -10,6 +11,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -18,7 +20,8 @@ import { RegisterComponent } from "./components/register/register.component";
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   providers: [RegisterService, LoginService],
   imports: [
@@ -28,8 +31,9 @@ import { RegisterComponent } from "./components/register/register.component";
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
       { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent }
+      { path: "register", component: RegisterComponent },
+      { path: "profile", component: ProfileComponent }
     ])
   ]
 })
-export class AppModule {}
+export class AppModule { }

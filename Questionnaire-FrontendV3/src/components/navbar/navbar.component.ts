@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output } from "@angular/core";
-import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: "navbar",
