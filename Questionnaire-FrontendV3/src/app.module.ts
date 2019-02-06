@@ -1,3 +1,5 @@
+import { LoginService } from "./services/login.service";
+import { RegisterService } from "./services/register.service";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
@@ -18,10 +20,11 @@ import { RegisterComponent } from "./components/register/register.component";
     LoginComponent,
     RegisterComponent
   ],
-  providers: [],
+  providers: [RegisterService, LoginService],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
       { path: "login", component: LoginComponent },

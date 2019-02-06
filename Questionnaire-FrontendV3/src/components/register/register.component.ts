@@ -1,4 +1,7 @@
-import { Component } from "@angular/core";
+import { User } from "./../../models/User";
+import { RegisterService } from "./../../services/register.service";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "register",
@@ -6,11 +9,26 @@ import { Component } from "@angular/core";
   styles: [require("./register.component.css").toString()]
 })
 export class RegisterComponent {
-  constructor() {}
+  item: User = <any>{};
+  busy: boolean;
+  constructor(private service: RegisterService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.item.roleId = 2;
+  }
 
-  hello() {
-    console.log("helloWorld");
+  register() {
+    var request;
+    this.busy = true;
+    request = this.service.create(this.item);
+    request.then(
+      () => {
+        this.router.navigate(["/login"]);
+      },
+      error => {
+        this.busy = false;
+        alert(error.toString());
+      }
+    );
   }
 }

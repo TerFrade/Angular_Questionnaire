@@ -31,13 +31,17 @@ namespace Questionnaire_BackendV3.Controllers
             }
         }
 
-        public UserDTO Get(string email, string password)
+        public IHttpActionResult Get(string email, string password)
         {
             using (var db = new QuestionnaireDBContext())
             {
+
                 var item = db.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
-                if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
-                return new UserDTO(item);
+                if (item == null)
+                    return NotFound();
+                    //throw new HttpResponseException(HttpStatusCode.NotFound);
+                
+                return Ok(new UserDTO(item));
             }
         }
 

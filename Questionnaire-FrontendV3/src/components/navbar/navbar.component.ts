@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input, OnInit, Output } from "@angular/core";
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: "navbar",
@@ -6,5 +7,15 @@ import { Component } from "@angular/core";
   styles: [require("./navbar.component.css").toString()]
 })
 export class NavbarComponent {
-  constructor() {}
+  @Input() isLogin: boolean;
+  constructor() { }
+  ngOnInit() {
+    this.isLogin = JSON.parse(localStorage.getItem("isLogin"));
+  }
+
+  logout() {
+    this.isLogin = !this.isLogin;
+    localStorage.setItem('isLogin', JSON.stringify(this.isLogin));
+    localStorage.removeItem('user');
+  }
 }
