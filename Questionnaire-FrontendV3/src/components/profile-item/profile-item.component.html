@@ -1,0 +1,29 @@
+<ul class="list-group ">
+    <li class="list-group-item border-secondary"
+        *ngFor="let questionnaire of questionnaires let i = index; let odd = odd"
+        [class.list-group-item-secondary]="odd">
+        <div class="row">
+            <div class="col-md-2">{{questionnaire.title}}</div>
+            <div class="col-md-4">{{questionnaire.description}}</div>
+            <div class="col-md-3">Link: {{questionnaire.link}}</div>
+            <div class="col-md-1">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id={{questionnaire.id}}
+                        [(ngModel)]="questionnaire.isPublic">
+                    <label class="custom-control-label" for={{questionnaire.id}}>Public</label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a href="#">
+                    <i class="fas fa-eye"></i>
+                </a>
+                <a href="#">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="#">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        </div>
+    </li>
+</ul>

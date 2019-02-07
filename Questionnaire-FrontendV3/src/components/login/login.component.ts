@@ -1,5 +1,5 @@
 import { LoginService } from "./../../services/login.service";
-import { User } from "./../../models/User";
+import { User } from "../../models/user";
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { EmailValidator } from "@angular/forms";

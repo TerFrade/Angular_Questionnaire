@@ -1,4 +1,4 @@
-import { User } from "./../../models/User";
+import { User } from "../../models/user";
 import { RegisterService } from "./../../services/register.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class RegisterComponent {
   item: User = <any>{};
   busy: boolean;
-  constructor(private service: RegisterService, private router: Router) {}
+  constructor(private service: RegisterService, private router: Router) { }
 
   ngOnInit() {
     this.item.roleId = 2;

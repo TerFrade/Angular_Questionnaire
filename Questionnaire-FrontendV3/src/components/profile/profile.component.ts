@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { User } from '../../models/user';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "profile",
@@ -6,5 +7,10 @@ import { Component } from "@angular/core";
   styles: [require("./profile.component.css").toString()]
 })
 export class ProfileComponent {
-  constructor() {}
+  user: User;
+  constructor() { }
+
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
 }
