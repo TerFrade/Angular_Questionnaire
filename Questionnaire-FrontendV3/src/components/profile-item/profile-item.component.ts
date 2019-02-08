@@ -1,5 +1,6 @@
 import { Questionnaire } from '../../models/questionnaire';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
    selector: 'profile-item',
@@ -8,6 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProfileItem {
    @Input() questionnaires: Array<Questionnaire>;
-   constructor() {
+   constructor(private router: Router) {
+   }
+
+   view(questionnaire) {
+      this.router.navigate(['/profile-view', questionnaire.id]);
    }
 }

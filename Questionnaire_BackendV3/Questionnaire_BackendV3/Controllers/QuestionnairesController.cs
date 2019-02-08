@@ -20,6 +20,16 @@ namespace Questionnaire_BackendV3.Controllers
             }
         }
 
+        public QuestionnaireDTO Get(int id)
+        {
+            using (var db = new QuestionnaireDBContext())
+            {
+                var item = db.Questionnaires.FirstOrDefault(x => x.Id == id);
+                if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
+                return new QuestionnaireDTO(item);
+            }
+        }
+
         public int Post([FromBody] QuestionnaireDTO value)
         {
             using (var db = new QuestionnaireDBContext())

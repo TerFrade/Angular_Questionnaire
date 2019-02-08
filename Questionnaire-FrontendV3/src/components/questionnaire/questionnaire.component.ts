@@ -1,4 +1,4 @@
-import { QuestionnaireService } from './../../services/questionnaire.service.';
+import { QuestionnaireService } from '../../services/questionnaire.service';
 import { Questionnaire } from './../../models/questionnaire';
 import { Component } from '@angular/core';
 

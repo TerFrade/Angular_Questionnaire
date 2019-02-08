@@ -1,4 +1,5 @@
-import { QuestionnaireService } from './services/questionnaire.service.';
+import { QuestionTypeService } from './services/questionType.service';
+import { QuestionnaireService } from './services/questionnaire.service';
 import { LoginService } from "./services/login.service";
 import { RegisterService } from "./services/register.service";
 import { NgModule } from "@angular/core";
@@ -15,6 +16,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileItem } from './components/profile-item/profile-item.component';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { QuestionnaireItem } from './components/questionnaire-item/questionnaire-item.component';
+import { QuestionnaireView } from './components/questionnaire-view/questionnaire-view.component';
+import { ProfileView } from './components/profile.view/profile-view.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -27,9 +30,11 @@ import { QuestionnaireItem } from './components/questionnaire-item/questionnaire
     ProfileComponent,
     ProfileItem,
     QuestionnaireComponent,
-    QuestionnaireItem
+    QuestionnaireItem,
+    QuestionnaireView,
+    ProfileView
   ],
-  providers: [RegisterService, LoginService, QuestionnaireService],
+  providers: [RegisterService, LoginService, QuestionnaireService, QuestionTypeService],
   imports: [
     BrowserModule,
     HttpModule,
@@ -39,7 +44,9 @@ import { QuestionnaireItem } from './components/questionnaire-item/questionnaire
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
       { path: "profile", component: ProfileComponent },
-      { path: "questionnaires", component: QuestionnaireComponent }
+      { path: "questionnaires", component: QuestionnaireComponent },
+      { path: 'questionnaire-view/:id', component: QuestionnaireView },
+      { path: 'profile-view/:id', component: ProfileView },
     ])
   ]
 })

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-2">{{questionnaire.title}}</div>
             <div class="col-md-4">{{questionnaire.description}}</div>
-            <div class="col-md-3">Link: {{questionnaire.link}}</div>
+            <div class="col-md-4">Link: {{questionnaire.link}}</div>
             <div class="col-md-1">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id={{questionnaire.id}}
@@ -13,9 +13,9 @@
                     <label class="custom-control-label" for={{questionnaire.id}}>Public</label>
                 </div>
             </div>
-            <div class="col-md-2">
-                <a href="#">
-                    <i class="fas fa-eye"></i>
+            <div class="col-md-1">
+                <a class="action">
+                    <i class="fas fa-eye" (click)="view(questionnaire)"></i>
                 </a>
                 <a href="#">
                     <i class="fas fa-edit"></i>
