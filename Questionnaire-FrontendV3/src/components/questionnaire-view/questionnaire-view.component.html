@@ -6,6 +6,7 @@
             <p><small>{{questionnaire.description}}</small></p>
         </div>
         <form #f="ngForm" (ngSubmit)="save(f)">
+            <!--<form [formGroup]="myForm" (ngSubmit)="save()">-->
             <div class="card-body">
                 <ul class="list-group ">
                     <li class="list-group-item border-secondary"
@@ -18,8 +19,8 @@
                             <ng-container *ngIf="question.questionTypeId==1">
                                 <div class="custom-control custom-radio"
                                     *ngFor="let availableAnswer of question.availableAnswers">
-                                    <input type="radio" id="{{availableAnswer.id}}" name="radioValue"
-                                        class="custom-control-input" ngModel #radioValue="ngModel"
+                                    <input type="radio" id="{{availableAnswer.id}}" name="{{question.id}}"
+                                        class="custom-control-input" ngModel #{{question.id}}="ngModel"
                                         value="{{availableAnswer.answerText}}">
                                     <label class="custom-control-label" for="{{availableAnswer.id}}">
                                         {{availableAnswer.answerText}}</label>
@@ -27,7 +28,7 @@
                             </ng-container>
 
                             <ng-container *ngIf="question.questionTypeId==2">
-                                <select class="custom-select" name="optionValue" ngModel #optionValue="ngModel">
+                                <select class="custom-select" name="{{question.id}}" ngModel #{{question.id}}="ngModel">
                                     <option selected="">{{question.questionText}}</option>
                                     <option *ngFor="let availableAnswer of question.availableAnswers"
                                         [ngValue]="availableAnswer.answerText">{{availableAnswer.answerText}}</option>
@@ -36,18 +37,7 @@
 
                             <ng-container *ngIf="question.questionTypeId==3">
                                 <input type="text" class="form-control" placeholder="{{question.questionText}}"
-                                    id="{{question.id}}" name="textValue" ngModel #textValue="ngModel">
-                            </ng-container>
-
-                            <ng-container *ngIf="question.questionTypeId==4">
-                                <div class="custom-control custom-checkbox"
-                                    *ngFor="let availableAnswer of question.availableAnswers">
-                                    <input type="checkbox" class="custom-control-input" id="{{availableAnswer.id}}"
-                                        value="availableAnswer.answerText" name="checkboxValue" ngModel
-                                        #checkboxValue="ngModel">
-                                    <label class="custom-control-label" for="{{availableAnswer.id}}">
-                                        {{availableAnswer.answerText}}</label>
-                                </div>
+                                    id="{{question.id}}" name="{{question.id}}" ngModel #{{question.id}}="ngModel">
                             </ng-container>
                         </div>
                     </li>

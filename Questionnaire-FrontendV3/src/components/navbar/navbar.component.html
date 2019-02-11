@@ -19,8 +19,15 @@
         <li *ngIf="!isLogin">
           <a class="nav-link" [routerLink]="['/register']">Register</a>
         </li>
-        <li *ngIf="isLogin">
-          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        <li *ngIf="isLogin" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/profile']">Questionnaires</a>
+            <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
+          </div>
         </li>
         <li *ngIf="isLogin">
           <a class="nav-link" [routerLink]="['/']" (click)="logout()">Logout</a>

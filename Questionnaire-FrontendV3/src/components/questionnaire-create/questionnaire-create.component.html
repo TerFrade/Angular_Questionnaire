@@ -1,0 +1,57 @@
+<navbar></navbar>
+<div class="container padding-top">
+    <form>
+        <fieldset>
+            <legend>New Questionnaire</legend>
+            <div class="card border-secondary mb-3">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-2 col-form-label">Title:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title"
+                                placeholder="Give your questionnaire a snazzy title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="description" class="col-sm-2 col-form-label">Description:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="description"
+                                placeholder="Explain your Questionnaire">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card border-secondary">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Question:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" placeholder="Write a cute question">
+                        </div>
+                        <select class="custom-select col-sm-2">
+                            <option selected="">Question Type</option>
+                            <option value="1">Radio</option>
+                            <option value="2">Drop Down</option>
+                            <option value="3">Text</option>
+                        </select>
+                        <button *ngIf="" type="button" class="btn btn-primary btn-sm" style="margin: auto;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Answer:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" placeholder="Give it a funny answer">
+                        </div>
+                        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+</div>

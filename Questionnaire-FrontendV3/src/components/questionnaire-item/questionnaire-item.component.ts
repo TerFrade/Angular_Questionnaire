@@ -14,6 +14,6 @@ export class QuestionnaireItem {
    }
 
    view(questionnaire) {
-      this.router.navigate(['/questionnaire-view', questionnaire.id]);
+      this.router.navigate(['/questionnaire-view', questionnaire.id, questionnaire.link]);
    }
 }

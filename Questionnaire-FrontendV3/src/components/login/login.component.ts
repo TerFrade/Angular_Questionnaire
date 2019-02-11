@@ -23,7 +23,7 @@ export class LoginComponent {
         this.isLogin = true;
         localStorage.setItem("user", JSON.stringify(this.item));
         localStorage.setItem("isLogin", JSON.stringify(this.isLogin));
-        this.router.navigate(["/profile"]);
+        this.router.navigate(["/"]);
       },
       error => {
         this.isLogin = false;

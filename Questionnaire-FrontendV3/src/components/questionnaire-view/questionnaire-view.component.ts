@@ -1,12 +1,12 @@
 import { Response } from './../../models/reponse';
+import { ResponseService } from '../../services/response.service';
 import { QuestionTypeService } from './../../services/questionType.service';
-import { AvailableAnswer } from './../../models/availableanswer';
-import { Component, OnInit } from '@angular/core';
+import { Component, } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Questionnaire } from '../../models/questionnaire';
 import { QuestionnaireService } from '../../services/questionnaire.service';
-import { QuestionType } from './../../models/questionType';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
    selector: 'questionnaire-view',
@@ -15,11 +15,13 @@ import { NgForm } from '@angular/forms';
 })
 export class QuestionnaireView {
    questionnaire: Questionnaire = <any>{};
-   responses: Array<Response>;
+   responses: Array<Response> = <any>[];
+   response: Response = <any>{};
    //questionType: Array<QuestionType> = new Array<QuestionType>();
    //availableAnswer: AvailableAnswer = <any>{};
 
-   constructor(private router: Router, private route: ActivatedRoute, private service: QuestionnaireService, private qtService: QuestionTypeService) {
+   constructor(private router: Router, private route: ActivatedRoute,
+      private service: QuestionnaireService, private qtService: QuestionTypeService, private rService: ResponseService) {
    }
 
    ngOnInit() {
@@ -40,6 +42,15 @@ export class QuestionnaireView {
    }
 
    save(f: NgForm) {
-      console.log(f.value);
+      this.questionnaire.questions.forEach(item => {
+         this.response = new Response();
+         this.response.responseText = f.value[item.id.toString()]
+         this.response.questionId = item.id
+         this.rService.postResponse(this.response);
+         //this.responses.push(this.response);
+      });
+
+      console.log(this.responses);
+
    }
 }

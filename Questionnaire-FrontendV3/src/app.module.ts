@@ -1,3 +1,5 @@
+import { UserService } from './services/user.service';
+import { ResponseService } from './services/response.service';
 import { QuestionTypeService } from './services/questionType.service';
 import { QuestionnaireService } from './services/questionnaire.service';
 import { LoginService } from "./services/login.service";
@@ -18,6 +20,9 @@ import { QuestionnaireComponent } from './components/questionnaire/questionnaire
 import { QuestionnaireItem } from './components/questionnaire-item/questionnaire-item.component';
 import { QuestionnaireView } from './components/questionnaire-view/questionnaire-view.component';
 import { ProfileView } from './components/profile.view/profile-view.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { QuestionnaireCreate } from './components/questionnaire-create/questionnaire-create.component';
+
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -32,9 +37,12 @@ import { ProfileView } from './components/profile.view/profile-view.component';
     QuestionnaireComponent,
     QuestionnaireItem,
     QuestionnaireView,
-    ProfileView
+    ProfileView,
+    SettingsComponent,
+    QuestionnaireCreate
   ],
-  providers: [RegisterService, LoginService, QuestionnaireService, QuestionTypeService],
+  providers: [RegisterService, LoginService, QuestionnaireService,
+    QuestionTypeService, ResponseService, UserService],
   imports: [
     BrowserModule,
     HttpModule,
@@ -45,8 +53,10 @@ import { ProfileView } from './components/profile.view/profile-view.component';
       { path: "register", component: RegisterComponent },
       { path: "profile", component: ProfileComponent },
       { path: "questionnaires", component: QuestionnaireComponent },
-      { path: 'questionnaire-view/:id', component: QuestionnaireView },
-      { path: 'profile-view/:id', component: ProfileView },
+      { path: 'questionnaire-view/:id/:link', component: QuestionnaireView },
+      { path: 'profile-view/:id/:link', component: ProfileView },
+      { path: 'settings', component: SettingsComponent },
+      { path: 'questionnaire-create', component: QuestionnaireCreate },
     ])
   ]
 })

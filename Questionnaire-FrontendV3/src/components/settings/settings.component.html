@@ -1,0 +1,35 @@
+<navbar></navbar>
+<div class="container padding-top">
+    <div class="card border-secondary mb-3">
+        <div class="card-header text-white bg-primary" style="display: inline-flex;">
+            <h5 class="">{{user.username}}'s settings </h5>
+        </div>
+        <div class="card-body" style="align-self:center; width: 500px">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Email:</label>
+                <div class="col-sm-9">
+                    <label class="form-control-plaintext" id="staticEmail">{{user.email}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Username:</label>
+                <div class="col-sm-9">
+                    <label class="form-control-plaintext" id="staticusername">{{user.username}}</label>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="usernameInput">New username</label>
+                <input type="text" class="form-control" id="usernameInput" [(ngModel)]="username"
+                    placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="passwordInput">New password</label>
+                <input type="password" class="form-control" id="passwordInput" [(ngModel)]="password"
+                    placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+        </div>
+    </div>
+</div>

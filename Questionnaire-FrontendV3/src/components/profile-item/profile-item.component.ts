@@ -13,6 +13,6 @@ export class ProfileItem {
    }
 
    view(questionnaire) {
-      this.router.navigate(['/profile-view', questionnaire.id]);
+      this.router.navigate(['/profile-view', questionnaire.id, questionnaire.link]);
    }
 }
