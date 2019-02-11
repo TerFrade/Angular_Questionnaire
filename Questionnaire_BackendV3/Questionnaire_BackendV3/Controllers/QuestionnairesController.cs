@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -10,6 +11,7 @@ namespace Questionnaire_BackendV3.Controllers
 {
     public class QuestionnairesController : ApiController
     {
+        private static Random random = new Random();
         // GET: api/Roles
         public QuestionnaireDTO[] Get()
         {
@@ -32,6 +34,9 @@ namespace Questionnaire_BackendV3.Controllers
 
         public int Post([FromBody] QuestionnaireDTO value)
         {
+
+            int lengthRan = random.Next(5, 9);
+             
             using (var db = new QuestionnaireDBContext())
             {
                 var item = new Questionnaire()
@@ -39,7 +44,7 @@ namespace Questionnaire_BackendV3.Controllers
                     Title = value.Title,
                     Description = value.Description,
                     IsPublic = value.IsPublic,
-                    Link = value.Link,
+                    Link = RandomString(lengthRan),
                     UserId = value.UserId,
                     User = db.Users.FirstOrDefault(x => x.Id == value.UserId),
                 };
@@ -74,6 +79,14 @@ namespace Questionnaire_BackendV3.Controllers
                 db.Questionnaires.Remove(item);
                 db.SaveChanges();
             }
+        }
+
+        
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
