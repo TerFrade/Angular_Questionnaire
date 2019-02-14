@@ -6,4 +6,5 @@ export class Questionnaire {
     isPublic: boolean;
     link: string;
     questions: Array<Question>;
+    userId: number;
 }

@@ -48,6 +48,7 @@ export class QuestionnaireView {
          this.response.questionId = item.id
          this.rService.postResponse(this.response);
          //this.responses.push(this.response);
+         this.router.navigate(["questionnaires"]);
       });
 
       console.log(this.responses);

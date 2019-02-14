@@ -27,6 +27,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['/profile']">Questionnaires</a>
             <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
+            <a *ngIf="isAdmin == true" class="dropdown-item" [routerLink]="['/admin']">Admin Page</a>
           </div>
         </li>
         <li *ngIf="isLogin">

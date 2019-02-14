@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <ng-container *ngFor="let question of questions; let i = index">
+            <ng-container *ngFor="let question of questionnaire.questions; let i = index">
                 <br />
                 <div class="card border-secondary">
                     <div class="card-body">
@@ -31,25 +31,25 @@
                             <label class="col-sm-2 col-form-label">Question:</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" placeholder="Write a cute question"
-                                    name=question-{{i}} [(ngModel)]="questions[i].questionText">
+                                    name=question-{{i}} [(ngModel)]="question.questionText">
                             </div>
                             <select class="custom-select col-sm-2" name=select-{{i}}
-                                [(ngModel)]="questions[i].questionTypeId">
+                                [(ngModel)]="question.questionTypeId">
                                 <option value="0" disabled selected>Question Types</option>
                                 <option *ngFor="let questionType of questionTypes" value={{questionType.id}}>
                                     {{questionType.typeName}}
                                 </option>
                             </select>
 
-                            <ng-container *ngIf="questions[i].questionTypeId != 0">
-                                <button *ngIf="questions[i].questionTypeId == 1 || questions[i].questionTypeId == 2"
+                            <ng-container *ngIf="question.questionTypeId != 0">
+                                <button *ngIf="question.questionTypeId == 1 || question.questionTypeId == 2"
                                     type="button" class="btn btn-primary btn-sm" style="margin: auto;"
                                     (click)="addAnswer(i)"><i class=" fas fa-plus"></i></button>
                             </ng-container>
 
                         </div>
 
-                        <ng-container *ngFor="let availableAnswer of questions[i].availableAnswers; let iA = index">
+                        <ng-container *ngFor="let availableAnswer of question.availableAnswers; let iA = index">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Answer:</label>
                                 <div class="col-sm-6">
@@ -87,7 +87,7 @@
             <p>questionnaire:{{questionnaire | json}}</p>
 
             <br />
-            <button type="submit" class="btn btn-primary" (click)="addQuestionnaire()">Submit</button>
+            <button type="submit" class="btn btn-primary" (click)="editQuestionnaire()">Submit</button>
         </fieldset>
     </form>
 </div>

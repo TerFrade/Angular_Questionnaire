@@ -26,4 +26,18 @@ export class QuestionnaireService {
         return <Questionnaire>response.json();
       });
   }
+
+  postQuestionaire(item: Questionnaire) {
+    return this.http.post(API_URL_GLOBAL + 'questionnaires', item).toPromise().then(response => {
+      return <number>response.json();
+    });
+  }
+
+  deleteQuestionnaire(id) {
+    return this.http.delete(API_URL_GLOBAL + 'questionnaires/' + id).toPromise();
+  }
+
+  updateQuestionniare(item) {
+    return this.http.put(API_URL_GLOBAL + 'questionnaires/' + item.id, item).toPromise();
+  }
 }

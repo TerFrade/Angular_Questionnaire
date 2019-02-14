@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { QuestionnaireService } from '../../services/questionnaire.service';
 import { Questionnaire } from './../../models/questionnaire';
 

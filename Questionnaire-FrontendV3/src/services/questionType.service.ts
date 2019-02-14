@@ -17,4 +17,13 @@ export class QuestionTypeService {
         return <QuestionType>response.json();
       });
   }
+
+  getAllQuestionType() {
+    return this.http
+      .get(API_URL_GLOBAL + "questionTypes/")
+      .toPromise()
+      .then(response => {
+        return <QuestionType[]>response.json();
+      });
+  }
 }

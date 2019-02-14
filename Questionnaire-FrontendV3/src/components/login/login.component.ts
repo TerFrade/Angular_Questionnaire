@@ -13,6 +13,7 @@ import { stringify } from "querystring";
 export class LoginComponent {
   item: User = <any>{};
   isLogin: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private service: LoginService, private router: Router) { }
 
@@ -21,8 +22,14 @@ export class LoginComponent {
       item => {
         this.item = item;
         this.isLogin = true;
+        if (this.item.roleId == 1)
+          this.isAdmin = true;
+        else
+          this.isAdmin = false;
+
         localStorage.setItem("user", JSON.stringify(this.item));
         localStorage.setItem("isLogin", JSON.stringify(this.isLogin));
+        localStorage.setItem("isAdmin", JSON.stringify(this.isAdmin));
         this.router.navigate(["/"]);
       },
       error => {

@@ -24,22 +24,14 @@
                         </ng-container>
                         <ng-container *ngIf="question.questionTypeId==2">
                             <select class="custom-select">
-                                <option selected="">{{question.questionText}}</option>
+                                <option value="" disabled selected>Select an Answer</option>
                                 <option *ngFor="let availableAnswer of question.availableAnswers"
                                     value="availableAnswer.answerText">{{availableAnswer.answerText}}</option>
                             </select>
                         </ng-container>
                         <ng-container *ngIf="question.questionTypeId==3">
-                            <input type="text" class="form-control" placeholder="{{question.questionText}}"
+                            <input type="text" class="form-control" placeholder="Write a cute answer"
                                 id="{{question.id}}">
-                        </ng-container>
-                        <ng-container *ngIf="question.questionTypeId==4">
-                            <div class="custom-control custom-checkbox"
-                                *ngFor="let availableAnswer of question.availableAnswers">
-                                <input type="checkbox" class="custom-control-input" id="{{availableAnswer.id}}">
-                                <label class="custom-control-label" for="{{availableAnswer.id}}">
-                                    {{availableAnswer.answerText}}</label>
-                            </div>
                         </ng-container>
                     </div>
                 </li>

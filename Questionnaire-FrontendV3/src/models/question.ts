@@ -7,6 +7,7 @@ export class Question {
     index: number;
     isRequired: boolean;
     questionTypeId: number;
-    avaiableAnswers: Array<AvailableAnswer>;
+    questionnaireId: number;
+    availableAnswers: Array<AvailableAnswer> = [];
     responses: Array<Response>;
 }

@@ -1,0 +1,23 @@
+<ul class="list-group ">
+    <ng-container>
+        <li class="list-group-item border-secondary" *ngFor="let user of users let i = index; let odd = odd"
+            [class.list-group-item-secondary]="odd">
+
+            <div class="row">
+                <div class="col-md-2">Username: {{user.username}}</div>
+                <div class="col-md-3">Email: {{user.email}}</div>
+                <div class="col-md-3">Password: {{user.password}}</div>
+                <div *ngIf="user.roleId == 1" class="col-md-2">Role: Admin</div>
+                <div *ngIf="user.roleId == 2" class="col-md-2">Role: User</div>
+
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary btn-sm controlBtn" (click)="edit(user)"><i
+                            class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm controlBtn"><i class="fas fa-trash"
+                            (click)="delete(user)"></i></button>
+                </div>
+            </div>
+
+        </li>
+    </ng-container>
+</ul>

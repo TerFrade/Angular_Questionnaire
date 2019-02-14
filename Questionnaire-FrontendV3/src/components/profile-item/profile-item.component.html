@@ -4,25 +4,22 @@
         [class.list-group-item-secondary]="odd">
         <div class="row">
             <div class="col-md-2">{{questionnaire.title}}</div>
-            <div class="col-md-4">{{questionnaire.description}}</div>
+            <div class="col-md-3">{{questionnaire.description}}</div>
             <div class="col-md-4">Link: {{questionnaire.link}}</div>
             <div class="col-md-1">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id={{questionnaire.id}}
-                        [(ngModel)]="questionnaire.isPublic">
+                        [(ngModel)]="questionnaire.isPublic" (click)="editPublish(questionnaire)">
                     <label class="custom-control-label" for={{questionnaire.id}}>Public</label>
                 </div>
             </div>
-            <div class="col-md-1">
-                <a (click)="view(questionnaire)">
-                    <i class="fas fa-eye"></i>
-                </a>
-                <a href="#">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a href="#">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary btn-sm controlBtn" (click)="view(questionnaire)"><i
+                        class="fas fa-eye"></i></button>
+                <button type="button" class="btn btn-primary btn-sm controlBtn" (click)="edit(questionnaire)"><i
+                        class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-primary btn-sm controlBtn" (click)="delete(questionnaire)"><i
+                        class="fas fa-trash"></i></button>
             </div>
         </div>
     </li>
