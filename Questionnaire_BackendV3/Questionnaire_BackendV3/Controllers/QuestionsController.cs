@@ -40,7 +40,7 @@ namespace Questionnaire_BackendV3.Controllers
                     AvailableAnswers = value.AvailableAnswers != null ? value.AvailableAnswers
                     .Select(x => new AvailableAnswer()
                     {
-                        AnswerText = x.AnswerText
+                        AnswerText = x.AnswerText ?? ""
                     }).ToList() : null
                 };
             
@@ -55,6 +55,29 @@ namespace Questionnaire_BackendV3.Controllers
             using (var db = new QuestionnaireDBContext())
             {
                 var item = db.Questions.FirstOrDefault(x => x.Id == id);
+                if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
+                item.QuestionText = value.QuestionText;
+                item.Index = value.Index;
+                item.IsRequired = value.IsRequired;
+                item.Picture = value.Picture;
+                item.QuestionnaireId = value.QuestionnaireId;
+                item.Questionnaire = db.Questionnaires.FirstOrDefault(x => x.Id == value.QuestionnaireId);
+                item.QuestionTypeId = value.QuestionTypeId;
+                item.QuestionType = db.QuestionTypes.FirstOrDefault(x => x.Id == value.QuestionTypeId);
+                item.AvailableAnswers = value.AvailableAnswers != null ? value.AvailableAnswers
+                    .Select(x => new AvailableAnswer()
+                    {
+                        AnswerText = x.AnswerText
+                    }).ToList() : null;
+                db.SaveChanges();
+            }
+        }
+
+        public void Put([FromBody] QuestionDTO value)
+        {
+            using (var db = new QuestionnaireDBContext())
+            {
+                var item = db.Questions.FirstOrDefault(x => x.Id == value.Id);
                 if (item == null) { throw new HttpResponseException(HttpStatusCode.NotFound); }
                 item.QuestionText = value.QuestionText;
                 item.Index = value.Index;

@@ -47,6 +47,22 @@ namespace Questionnaire_BackendV3.Controllers
                     Link = RandomString(lengthRan),
                     UserId = value.UserId,
                     User = db.Users.FirstOrDefault(x => x.Id == value.UserId),
+                    //Questions = value.Questions != null ? value.Questions
+                    //.Select(x => new Question()
+                    //{
+                       
+                    //    Index = x.Index,
+                    //    IsRequired = x.IsRequired,
+                    //    Picture = x.Picture,
+                    //    QuestionText = x.QuestionText,
+                    //    QuestionTypeId = x.QuestionTypeId,
+                    //    AvailableAnswers = x.AvailableAnswers != null ? x.AvailableAnswers.Select(y => new AvailableAnswer()
+                    //    {
+                    //        AnswerText = y.AnswerText
+                    //    }).ToList() : null
+                    
+
+                    //}).ToList() : null
                 };
                 db.Questionnaires.Add(item);
                 db.SaveChanges();
