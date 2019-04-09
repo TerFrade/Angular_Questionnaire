@@ -277,3 +277,6 @@ C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV31.resources
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV4.resources
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV5.resources
+C:\Users\User\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV31.resources
+C:\Users\User\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV4.resources
+C:\Users\User\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV5.resources
