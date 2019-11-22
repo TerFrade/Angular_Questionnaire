@@ -1,0 +1,14 @@
+<ul class="list-group ">
+    <li class="list-group-item border-secondary"
+        *ngFor="let questionnaire of questionnaires let i = index; let odd = odd"
+        [class.list-group-item-secondary]="odd">
+        <div class="row">
+            <div class="col-md-2">{{questionnaire.title}}</div>
+            <div class="col-md-4">{{questionnaire.description}}</div>
+            <div class="col-md-4">Link: {{questionnaire.link}}</div>
+            <div class="col-md-2">
+                <a class="btn text-white btn-primary" (click)="view(questionnaire)">View Questionnaire</a>
+            </div>
+        </div>
+    </li>
+</ul>

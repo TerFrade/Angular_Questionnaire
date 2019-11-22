@@ -1,0 +1,50 @@
+<navbar></navbar>
+<div class="container padding-top" style="margin-right: inherit;">
+    <div class="card border-secondary mb-3" style="width: 50rem;">
+        <div class="card-header text-white bg-primary">
+            <h5>{{questionnaire.title}} </h5>
+            <p><small>{{questionnaire.description}}</small></p>
+        </div>
+        <form #f="ngForm" (ngSubmit)="save(f)">
+            <!--<form [formGroup]="myForm" (ngSubmit)="save()">-->
+            <div class="card-body">
+                <ul class="list-group ">
+                    <li class="list-group-item border-secondary"
+                        *ngFor="let question of questionnaire.questions let i = index;">
+                        <div class="row">
+                            <h5>{{question.questionText}}</h5>
+                        </div>
+                        <div class="form-group">
+
+                            <ng-container *ngIf="question.questionTypeId==1">
+                                <div class="custom-control custom-radio"
+                                    *ngFor="let availableAnswer of question.availableAnswers">
+                                    <input type="radio" id="{{availableAnswer.id}}" name="{{question.id}}"
+                                        class="custom-control-input" ngModel #{{question.id}}="ngModel"
+                                        value="{{availableAnswer.answerText}}">
+                                    <label class="custom-control-label" for="{{availableAnswer.id}}">
+                                        {{availableAnswer.answerText}}</label>
+                                </div>
+                            </ng-container>
+
+                            <ng-container *ngIf="question.questionTypeId==2">
+                                <select class="custom-select" name="{{question.id}}" ngModel #{{question.id}}="ngModel">
+                                    <option value="" disabled selected>Select an Answer</option>
+                                    <option *ngFor="let availableAnswer of question.availableAnswers"
+                                        [ngValue]="availableAnswer.answerText">{{availableAnswer.answerText}}</option>
+                                </select>
+                            </ng-container>
+
+                            <ng-container *ngIf="question.questionTypeId==3">
+                                <input type="text" class="form-control" placeholder="Write a cute answer"
+                                    id="{{question.id}}" name="{{question.id}}" ngModel #{{question.id}}="ngModel">
+                            </ng-container>
+                        </div>
+                    </li>
+                </ul>
+                <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

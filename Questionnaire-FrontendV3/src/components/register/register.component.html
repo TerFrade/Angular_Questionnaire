@@ -1,0 +1,45 @@
+<div class="padding-top container">
+  <form class="form-signin">
+    <img class="mb-4" src="../../assets/Warg.svg" width="72" height="72" />
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label class="sr-only">Username</label>
+    <input
+      type="text"
+      class="form-control input"
+      name="username"
+      [(ngModel)]="item.username"
+      placeholder="Username"
+      autofocus
+      required
+    />
+    <label class="sr-only">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      name="email"
+      [(ngModel)]="item.email"
+      placeholder="Email address"
+      required
+    />
+    <label class="sr-only">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      [(ngModel)]="item.password"
+      placeholder="Password"
+      required
+    />
+    <br />
+    <button
+      class="btn btn-lg btn-primary btn-block"
+      type="submit"
+      (click)="register()"
+    >
+      Register
+    </button>
+    <p class="mt-5 mb-3 text-muted">
+      &copy; Warg 2019 - Rodgers Training Project
+    </p>
+  </form>
+</div>
