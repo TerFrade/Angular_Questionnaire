@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201902040846337_UpdateDomainV5.Designer.cs">
       <DependentUpon>201902040846337_UpdateDomainV5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007131223173_UpdateDomainv5.1.cs" />
+    <Compile Include="Migrations\202007131223173_UpdateDomainv5.1.Designer.cs">
+      <DependentUpon>202007131223173_UpdateDomainv5.1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Database\QuestionnaireDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902040846337_UpdateDomainV5.resx">
       <DependentUpon>201902040846337_UpdateDomainV5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007131223173_UpdateDomainv5.1.resx">
+      <DependentUpon>202007131223173_UpdateDomainv5.1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

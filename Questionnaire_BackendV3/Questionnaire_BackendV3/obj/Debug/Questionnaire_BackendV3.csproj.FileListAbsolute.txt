@@ -264,7 +264,6 @@ C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.csprojAssemblyReference.cache
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.InitialDomain.resources
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomain.resources
 C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainV2.resources
@@ -470,3 +469,5 @@ C:\Users\Terence\Desktop\Projects\Web-Development\Angular_Questionnaire\Question
 C:\Users\Terence\Desktop\Projects\Web-Development\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.csproj.CopyComplete
 C:\Users\Terence\Desktop\Projects\Web-Development\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.dll
 C:\Users\Terence\Desktop\Projects\Web-Development\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.pdb
+C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.csprojAssemblyReference.cache
+C:\Users\Terence\Desktop\Projects\Angular_Questionnaire\Questionnaire_BackendV3\Questionnaire_BackendV3\obj\Debug\Questionnaire_BackendV3.Migrations.UpdateDomainv51.resources

@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^4.3.0",
     "@angular/platform-browser-dynamic": "^4.3.0",
     "@angular/router": "^4.3.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "es6-promise": "^4.1.1",
     "es6-shim": "^0.35.1",
     "reflect-metadata": "^0.1.10",
@@ -39,7 +39,7 @@
     "style-loader": "^0.22.1",
     "typescript": "^2.7.2",
     "url-loader": "^1.1.0",
-    "webpack": "^4.16.5",
-    "webpack-dev-server": "^3.1.5"
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Questionnaire_BackendV3.Database.Models;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace Questionnaire_BackendV3.Models
 {

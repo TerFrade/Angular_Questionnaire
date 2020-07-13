@@ -1,5 +1,6 @@
 namespace Questionnaire_BackendV3.Migrations
 {
+    using Questionnaire_BackendV3.Database.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +27,11 @@ namespace Questionnaire_BackendV3.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Roles.AddOrUpdate(x => x.Id,
+                new Role() { Id = 1, Name = "Admin" },
+                new Role() { Id = 2, Name = "User" }
+               );
         }
     }
 }
