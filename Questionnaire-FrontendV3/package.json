@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^10.7.1",
-    "ajv": "^6.5.2",
+    "ajv": "^6.12.3",
     "awesome-typescript-loader": "^5.2.0",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
